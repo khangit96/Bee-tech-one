@@ -12,6 +12,7 @@ $router->group(['prefix' =>'/product'], function (Router $router) {
         'uses' => 'ProductController@index',
         'middleware' => 'can:product.products.index'
     ]);
+
     $router->get('products/create', [
         'as' => 'admin.product.product.create',
         'uses' => 'ProductController@create',

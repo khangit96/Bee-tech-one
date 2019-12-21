@@ -4,11 +4,11 @@ namespace Modules\Product\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Modules\Core\Http\Controllers\Admin\AdminBaseController;
 use Modules\Product\Entities\Product;
 use Modules\Product\Http\Requests\CreateProductRequest;
 use Modules\Product\Http\Requests\UpdateProductRequest;
 use Modules\Product\Repositories\ProductRepository;
-use Modules\Core\Http\Controllers\Admin\AdminBaseController;
 
 class ProductController extends AdminBaseController
 {
@@ -31,12 +31,10 @@ class ProductController extends AdminBaseController
      */
     public function index()
     {
-        //$products = $this->product->all();
-
-        //return view('product::admin.products.index', compact(''));
-        return "This is product page";
+        $products = $this->product->all();
+        return view('product::admin.products.index', compact('products'));
     }
-
+ 
     /**
      * Show the form for creating a new resource.
      *
@@ -55,7 +53,14 @@ class ProductController extends AdminBaseController
      */
     public function store(CreateProductRequest $request)
     {
-        $this->product->create($request->all());
+        $product=[
+            'name'=>$request->name,
+            'price'=>floatval($request->price),
+            'description'=>$request->description,
+             'image'=>$request->image,
+        ];
+
+        $this->product->create($product);
 
         return redirect()->route('admin.product.product.index')
             ->withSuccess(trans('core::core.messages.resource created', ['name' => trans('product::products.title.products')]));
@@ -81,7 +86,13 @@ class ProductController extends AdminBaseController
      */
     public function update(Product $product, UpdateProductRequest $request)
     {
-        $this->product->update($product, $request->all());
+        $productUpdate=[
+            'name'=>$request->name,
+            'price'=>floatval($request->price),
+            'description'=>$request->description,
+             'image'=>$request->image,
+        ];
+        $this->product->update($product, $productUpdate);
 
         return redirect()->route('admin.product.product.index')
             ->withSuccess(trans('core::core.messages.resource updated', ['name' => trans('product::products.title.products')]));

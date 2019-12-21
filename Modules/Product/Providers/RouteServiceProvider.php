@@ -28,11 +28,11 @@ class RouteServiceProvider extends CoreRoutingServiceProvider
         return __DIR__ . '/../Http/backendRoutes.php';
     }
 
-    /**
+     /**
      * @return string
      */
     protected function getApiRoute()
     {
-        return false;
+        return __DIR__ . '/../Http/apiRoutes.php';
     }
 }

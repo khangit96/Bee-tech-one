@@ -14,11 +14,24 @@ return [
         'create product' => 'Create a product',
     ],
     'table' => [
+        'name'=>'Name',
+        'price'=>'Price',
+        'description'=>'Description',
+        'image'=>'Image',
     ],
     'form' => [
+        'name'=>'Name',
+        'price'=>'Price',
+        'description'=>'Description',
+        'image'=>'Image',
+
     ],
     'messages' => [
     ],
     'validation' => [
+        'name'=>'Product name is required ',
+        'price'=>'Product price is required ',
+        'description'=>'Product description is required ',
+        'image'=>'Product image is required ',
     ],
 ];

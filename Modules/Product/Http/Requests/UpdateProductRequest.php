@@ -8,12 +8,12 @@ class UpdateProductRequest extends BaseFormRequest
 {
     public function rules()
     {
-        return [];
-    }
-
-    public function translationRules()
-    {
-        return [];
+        return [
+            'name' => 'required',
+            'price' => 'required',
+            'description' => 'required',
+            'image' => 'required',
+        ];
     }
 
     public function authorize()
@@ -23,11 +23,11 @@ class UpdateProductRequest extends BaseFormRequest
 
     public function messages()
     {
-        return [];
-    }
-
-    public function translationMessages()
-    {
-        return [];
+        return [
+            'name.required' => trans('product::products.validation.name'),
+            'price.required' => trans('product::products.validation.price'),
+            'description.required' => trans('product::products.validation.description'),
+            'image.required' => trans('product::products.validation.image')
+        ];
     }
 }

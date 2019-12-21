@@ -11,5 +11,11 @@ class Product extends Model
 
     protected $table = 'product__products';
     public $translatedAttributes = [];
-    protected $fillable = [];
+    protected $fillable = [
+        'id',
+        'name',
+        'price',
+        'description',
+        'image'
+    ];
 }
