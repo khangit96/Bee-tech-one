@@ -23,7 +23,7 @@ return [
         'name'=>'Name',
         'price'=>'Price',
         'description'=>'Description',
-        'image'=>'Image',
+        'image'=>'Image'
 
     ],
     'messages' => [

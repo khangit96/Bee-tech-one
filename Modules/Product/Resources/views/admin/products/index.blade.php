@@ -53,7 +53,7 @@
                                     {{ $product->description }}
                                 </td>
                                 <td>
-                                    {{ $product->image }}
+                                    <img style="width: 100px;height: 100px;" src="{{ $product->image }}" />
                                 </td>
                                 <td>
                                     <a href="{{ route('admin.product.product.edit', [$product->id]) }}">

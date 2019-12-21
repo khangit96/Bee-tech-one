@@ -23,6 +23,7 @@
                         <?php $i++; ?>
                         <div class="tab-pane {{ locale() == $locale ? 'active' : '' }}" id="tab_{{ $i }}">
                             @include('product::admin.products.partials.edit-fields', ['lang' => $locale])
+                            @mediaMultiple('product_image', $product)
                         </div>
                     @endforeach
 
@@ -50,6 +51,9 @@
 @push('js-stack')
     <script type="text/javascript">
         $( document ).ready(function() {
+            $productImageLabel=$('input[name="productImage"]').val();
+            $label=$('label[for="product_image"]').text($productImageLabel);
+
             $(document).keypressAction({
                 actions: [
                     { key: 'b', route: "<?= route('admin.product.product.index') ?>" }

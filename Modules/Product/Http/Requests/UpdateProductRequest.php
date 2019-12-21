@@ -11,8 +11,7 @@ class UpdateProductRequest extends BaseFormRequest
         return [
             'name' => 'required',
             'price' => 'required',
-            'description' => 'required',
-            'image' => 'required',
+            'description' => 'required'
         ];
     }
 
@@ -26,8 +25,7 @@ class UpdateProductRequest extends BaseFormRequest
         return [
             'name.required' => trans('product::products.validation.name'),
             'price.required' => trans('product::products.validation.price'),
-            'description.required' => trans('product::products.validation.description'),
-            'image.required' => trans('product::products.validation.image')
+            'description.required' => trans('product::products.validation.description')
         ];
     }
 }
